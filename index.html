@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glovo Business</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        *{
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            
+            background: linear-gradient(to right, cream, yellow);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .left, .right {
+            width: 60%;
+            padding: 20px;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px #000000de;
+            border-radius: 2rem;
+        }
+        h1, h2, h3 {
+            margin: 10px 0;
+        }
+        .counter{
+            display: inline-flex;
+            gap: 1rem;
+            
+            
+        }
+        input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid #ccc;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus {
+            border: 1px solid #ccc;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .checkbox-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .checkbox-container label {
+            margin: 5px 0;
+        }
+        input{
+            width: max;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: max-content;
+            flex-direction: column;
+        }
+        .submit-button {
+            background: #00896b;
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+            &:hover{
+                background: white;
+                color: #00896b;
+                border: 3px solid #00896b;
+            }
+             
+        }
+        .form-footer {
+            margin-top: 20px;
+        }
+        .form-footer a {
+            color: blue;
+            text-decoration: none;
+            margin: 5px 0;
+            text-align: center;
+        }
+        .quote {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .quote p {
+            margin: 5px 0;
+        }
+        .navigation-bar {
+            background: lightgray;
+            border-radius: 2rem;
+            display: flex;
+            justify-content: space-around;
+            padding: 5px;
+            margin: 3px 3rem;
+        }
+        .navigation-bar button {
+            background: black;
+            color: white;
+            padding: 1rem 5rem;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+        }
+        .navigation-bar button.active {
+            background: #00896b;
+        }
+        .content-section {
+            display: flex;
+            margin: 20px 0;
+            align-items: center;
+            padding: 2rem;
+        }
+        .content-section img {
+            width: 50%;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .centered-title {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .yellow-line {
+            height: 5px;
+            background: yellow;
+            width: 200px;
+            margin: 10px auto;
+        }
+        .testimonial-container {
+            background: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            position: relative;
+            margin: 20px 2rem;
+            background: linear-gradient(to bottom, lightgray, black);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem;
+            height: 250px;
+        }
+        .testimonial-container img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid yellow;
+            margin-right: 20px;
+        }
+        .testimonial-container p {
+            flex: 1;
+            margin: 0;
+
+        }
+        .yellow-section {
+            background: yellow;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .yellow-section .button {
+            background: darkgreen;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .helping-businesses {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .helping-businesses h2 {
+            margin: 0;
+            text-align: center;
+        }
+        .helping-businesses p {
+            margin: 10px 0;
+            text-align: center;
+            max-width: 80%;
+        }
+        .helping-businesses .yellow-line {
+            height: 5px;
+            background: yellow;
+            width: 200px;
+            margin: 10px auto;
+        }
+        .helping-businesses img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .faq-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .faq-container h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .faq-container .yellow-line {
+            margin-bottom: 30px;
+        }
+        .accordion {
+            width: 80%;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .accordion-item {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+        .accordion-item-header {
+            padding: 15px;
+            cursor: pointer;
+            position: relative;
+        }
+        .accordion-item-header::after {
+            content: '\25BC';
+            position: absolute;
+            right: 20px;
+            font-size: 1.2em;
+        }
+        .accordion-item-header.active::after {
+            content: '\25B2';
+        }
+        .accordion-item-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-item-body-content {
+            padding: 15px;
+        }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 50%;
+            height: 300px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+        .carousel img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .content {
+            width: 50%;
+        }
+        .image-container {
+            width: 50%;
+            text-align: right;
+        }
+         
+         .footer {
+            background: black;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer .logo {
+            
+          height: 40px;
+          padding-bottom: 20px;
+        }
+        .footer .section {
+            flex: 1;
+            margin-bottom: 20px;
+            min-width: 200px;
+           
+        }
+        .footer .section h2 {
+            color: lightgray;
+        }
+        .footer .section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+        }
+        .footer .section a svg {
+            margin-right: 10px;
+        }
+        .footer .button {
+            background: yellow;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin-top: 10px;
+        }
+        .footer .bottom-row {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid gray;
+            padding-top: 20px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .footer .bottom-row select{
+            width: 20%;
+        }
+        .footer select {
+            background: black;
+            color: white;
+            border: 1px solid gray;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .footer .store-images img {
+            margin-left: 10px;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+        }
+        .footer .store-images{
+            display: flex;
+            padding: 20px;
+        }
+        
+        .footer .section a svg {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            fill: white;
+        }
+        .img{
+            border-radius: 2rem;
+            width: 10%;
+        }
+        @media only screen and (max-width: 768px) {
+       .container {
+            flex-direction: column;
+        
+        }
+       .left,.right {
+            width: 100%;
+        }
+       .form-container {
+            padding: 10px;
+        }
+       .navigation-bar {
+            flex-direction: row;
+            padding: 15px;
+        }
+       .content-section {
+            flex-direction: column;
+            padding: 10px;
+        }
+       .testimonial-container {
+            flex-direction: column;
+            padding: 10px;
+        }
+       .helping-businesses {
+            padding: 10px;
+        }
+       .faq-container {
+            padding: 10px;
+        }
+       .footer {
+            padding: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+       .form-container {
+            padding: 5px;
+        }
+       .navigation-bar {
+            padding: 5px;
+        }
+       .content-section {
+            padding: 5px;
+        }
+       .testimonial-container {
+            padding: 5px;
+        }
+       .helping-businesses {
+            padding: 5px;
+        }
+       .faq-container {
+            padding: 5px;
+        }
+       .footer {
+            padding: 5px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Build Your Business Online with Glovo</h1>
+            <div class="form-container">
+                <h2>Start Selling with Glovo</h2>
+                <p>Register to become a partner. Sell more, increase your earnings, and manage your online business with us.</p>
+                
+                <input type="text" placeholder="Establishment Name">
+                <select>
+                    <option>Type of Establishment</option>
+                    <option>Restaurant (Cafe, Ice Cream, Juice, Smoothies)</option>
+                    <option>Pharmacy</option>
+                    <option>Retail Shop (Branch, Bakery, Gift, Beach, Electronics, Pet Store)</option>
+                    <option>Grocery Store</option>
+                    <option>Supermarket</option>
+                    <option>Sweets</option>
+                    <option>Flower Shop</option>
+                </select>
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+                <select name="Country code">
+                    <option value="+254">+254</option>
+                    <option value="+355">+355</option>
+                    <option value="+376">+376</option>
+                    <option value="+374">+374</option>
+                    <option value="+387">+387</option>
+                    <option value="+359">+359</option>
+                    <option value="+385">+385</option>
+                    <option value="+995">+995</option>
+                    <option value="+98">+39</option>
+                    <option value="+225">+225</option>
+                    <option value="+7">+7</option>
+                    <option value="+996">+996</option>
+                    <option value="+373">+373</option>
+                    <option value="+382">+382</option>
+                    <option value="+212">+212</option>
+                    <option value="+234">+234</option>
+                    <option value="+48">+48</option>
+                    <option value="+351">+351</option>
+                    <option value="+40">+40</option>
+                    <option value="+381">+381</option>
+                    <option value="+34">+34</option>
+                    <option value="+216">+216</option>
+                    <option value="+256">+256</option>
+                    <option value="+380">+380</option>
+                </select>
+                <input type="text" placeholder="Phone">
+                <input type="email" placeholder="Email">
+                <p class="counter">Number of Stores to Sign Up <button id="plus">-</button><span id="span">1</span><button id="minus">+</button></p>
+                <input type="text" placeholder="Establishment Location">
+                <div class="checkbox-container">
+                    <label><input type="checkbox"> Do you have a promotional code?</label>
+                    <label><input type="checkbox"> I accept to receive updates from Glovo via WhatsApp or similar platforms.</label>
+                    <label><input type="checkbox"> I accept the privacy policy.</label>
+                </div>
+                <div class="btn">
+                <button class="submit-button">Get Started</button>
+                <div class="form-footer">
+                    <p>Are you already a partner?<a href="#">Log in</a></p>
+                    <span>Want to be a courier?<a href="#">Register here</a></span>
+                </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="right">
+            <div class="img"
+            height= "40px";>
+            <img src="Glovo1.png" alt="Glovo Image">
+            </div>
+            <div class="quote">
+                <p><b>"Thanks to Glovo, we can bring fine dining to your doorsteps."</b></p>
+                <p>— Benjamin Boas, Bethel Restaurant, Nairobi</p>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-bar">
+        <button id="cellBtn" class="active">Sell</button>
+        <button id="manageBtn">Manage</button>
+        <button id="growBtn">Grow</button>
+    </div>
+    <div id="cellContent" class="content-section">
+        <div>
+            <h1>Increase Your Online Presence</h1>
+            <p>Expand your reach and increase your earnings with Glovo. Join our network and sell your products online effortlessly.</p>
+            <h3>Learn More About:</h3>
+            <ul>
+            <li><a href="#">Delivery with Glovo</a></li>
+            <li><a href="#">In-store pick-up</a></li>
+            </ul>
+
+        </div>
+        <img src="Sell.png" alt="Cell Image">
+    </div>
+    <div id="manageContent" class="content-section" style="display: none;">
+        <div>
+            <h1>Manage Your Online Store</h1>
+            <p>Take care of your orders, inventory, and customer relations with ease using our comprehensive management tools.</p>
+            <h3>Learn More About:</h3>
+            <ul>
+            <li><a href="#">Manage Your Store</a></li>
+            </ul>
+        </div>
+        <img src="Manage.png" alt="Manage Image">
+    </div>
+    <div id="growContent" class="content-section" style="display: none;">
+        <div>
+            <h1>Grow Your Online Business</h1>
+            <p>Expand your reach and grow your customer base with our innovative solutions tailored for your business needs.</p>
+            <h3>Learn More About:</h3>
+            <ul>
+            <li><a href="#">Promotions</a></li>
+            <li><a href="#">Menu Optimisation</a></li>
+            <li><a href="#">Ads</a></li>
+            </ul>
+
+    
+        </div>
+        <img src="Grow.png" alt="Grow Image">
+    </div>
+    <div class="testimonial-container">
+        <img class="img" src="Glovo3.jpg" alt="Testimonial Image">
+        <div>
+            <p>"Before, I didn't know I could use the Internet for this and now around 30% of my income comes from Glovo."</p>
+            <p>— STEPHEN, STEPHEN'S HOTEL</p>
+        </div>
+    </div>
+    <div class="yellow-section">
+        <h1>Not a Glovo Local Partner yet?</h1>
+        <button class="submit-button">Get Started</button>
+    </div>
+    <div class="helping-businesses">
+        <h2>Helping businesses in your neighbourhood go digital</h2>
+        <div class="yellow-line"></div>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Glovo is another neighbor in town, and that's why we want to help local shops and restaurants like yours grow online. Our mission is to empower thousands of local businesses to go digital. Thanks to our integrated solutions, we want to become the best digital ally for your business because local entrepreneurs and economies matter to us.</p>
+                <a href="#">Read More</a><br>
+                <button class="submit-button">Get Started</button>
+            </div>
+            <div class="image-container">
+                <img src="Glovo4.png" alt="Digital Solutions Image">
+            </div>
+        </div>
+    </div>
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        <div class="yellow-line"></div>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-item-header">What is Glovo?</div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        Glovo is an online delivery platform (web and app) that connect customers with businesses that want to expand their offer beyond the doors of their establishment and sell online. Present in 30 countries and with more than 3.4 million active users, Glovo leads the food delivery market in both orders and the number of restaurants.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">How does Glovo works for partners?</div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        Signing your local business up to our app is easy. You just have to fill in the form you’ll find on our Partner website, available at the top of this page.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">How long does it take to become a partner?</div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        Your restaurant can usually go online with Glovo within 5 working days as long as you send us all the details and documents we ask for (you can do all this online, quickly and safely) and you’ve signed your contract.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">How will I receive the orders?</div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        We will give you access to our platform and once you confirm the order, you will have about 15 minutes until the courier arrives to pick it up.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <img src="Glovolocal.png" alt="Glovo Logo" class="logo">
+        <div class="section">
+            <p>Let’s do this together</p>
+            <a href="#">I am a courier</a>
+            <a href="#">Glovo App</a>
+            <a href="#">Careers</a>
+        </div>
+        <div class="section">
+            <p>Links of Interest</p>
+            <a href="#">About Us</a>
+            <a href="#">Blog</a>
+            <a href="#">Help & FAQs</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="section">
+            <p>Legal</p>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookies Policy</a>
+            <a href="#">Security</a>
+        </div>
+        <div class="section">
+            <p>Follow Us</p>
+            <a href="#"><svg>...facebook icon svg...</svg> Facebook</a>
+            <a href="#"><svg>...instagram icon svg...</svg> Instagram</a>
+            <a href="#"><svg>...linkedin icon svg...</svg> LinkedIn</a>
+            <a href="#"><svg>...twitter icon svg...</svg> Twitter</a>
+        </div>
+        <div class="section">
+            <h2>Start your journey to grow and digitise your business with Glovo!</h2>
+            <button class="button">Become Partner</button>
+        </div>
+        <div class="bottom-row">
+            <select>
+                <option value="/bg/">Bulgaria</option>
+                <option value="/hr/">Hrvatska</option>
+                <option value="/it/">Italia</option>
+                <option value="/ge/">საქართველო</option>
+                <option value="/pl/">Polska</option>
+                <option value="/pt/">Portugal</option>
+                <option value="/ro/">România</option>
+                <option value="/rs/">Srbija</option>
+                <option value="/ua/">Україна</option>
+                <option value="/am/">Հայաստան</option>
+                <option value="/kz/">Казахстан</option>
+                <option value="/ci/">Côte d&#039;Ivoire</option>
+                <option value="/ma/">Maroc</option>
+                <option value="/tn/">Tunisie</option>
+                <option value="/ba/">Bosna i Hercegovina</option>
+                <option value="/ke/" selected>Kenya</option>
+                <option value="/ug/">Uganda</option>
+                <option value="/gh/">Ghana</option>
+                <option value="/ng/">Nigeria</option>
+                <option value="/kg/">Кыргызстан</option>
+                <option value="/by/">Беларусь</option>
+                <option value="/md/">Moldova</option>
+                <option value="/me/">Crna Gora</option>
+                <option value="/sl/">Slovenija</option>
+                <option value="/ad/">Andorra</option>
+                <option value="/es/">España</option>
+               
+            </select>
+            <div class="store-images">
+                <img src="Appstore.jpg" alt="App Store">
+                <img src="Googlestore.jpg" alt="Play Store">
+            </div>
+        </div>
+    </footer>
+    <script>
+        // let counter;
+        // const addCounter=()=>{counter +1; updateCounter();}
+        // const reduceCounter=()=>{counter -1; updateCounter();}
+        // const updateCounter=()=>{document.getElementById("counter").textContent=counter}
+        // document.getElementById("plus").addEventListener("click", addCounter());
+        // document.getElementById("minus").addEventListener("click", reduceCounter());
+        
+
+        document.getElementById('cellBtn').addEventListener('click', function() {
+            document.getElementById('cellContent').style.display = 'flex';
+            document.getElementById('manageContent').style.display = 'none';
+            document.getElementById('growContent').style.display = 'none';
+            this.classList.add('active');
+            document.getElementById('manageBtn').classList.remove('active');
+            document.getElementById('growBtn').classList.remove('active');
+        });
+        document.getElementById('manageBtn').addEventListener('click', function() {
+            document.getElementById('cellContent').style.display = 'none';
+            document.getElementById('manageContent').style.display = 'flex';
+            document.getElementById('growContent').style.display = 'none';
+            this.classList.add('active');
+            document.getElementById('cellBtn').classList.remove('active');
+            document.getElementById('growBtn').classList.remove('active');
+        });
+        document.getElementById('growBtn').addEventListener('click', function() {
+            document.getElementById('cellContent').style.display = 'none';
+            document.getElementById('manageContent').style.display = 'none';
+            document.getElementById('growContent').style.display = 'flex';
+            this.classList.add('active');
+            document.getElementById('cellBtn').classList.remove('active');
+            document.getElementById('manageBtn').classList.remove('active');
+        });
+        const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+        accordionItemHeaders.forEach(accordionItemHeader => {
+            accordionItemHeader.addEventListener("click", event => {
+                accordionItemHeader.classList.toggle("active");
+                const accordionItemBody = accordionItemHeader.nextElementSibling;
+                if (accordionItemHeader.classList.contains("active")) {
+                    accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+                } else {
+                    accordionItemBody.style.maxHeight = 0;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
